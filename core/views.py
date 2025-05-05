@@ -1,4 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.core.mail import EmailMessage
+from django.core.mail import send_mail
+from django.conf import settings
+from .forms import ContatoForm
+
 
 def home(request):
     return render(request, 'home.html')
@@ -39,12 +44,32 @@ def suporte(request):
 def localizacao(request):
     return render(request, 'localizacao.html')
 
-def contato(request):
-    return render(request, 'contato.html')
-
-# def login(request):
-#     return render(request, 'login.html')
-
 def login_view(request):
     return render(request, 'login.html')
+
+def contato(request):
+    if request.method == 'POST':
+        form = ContatoForm(request.POST)
+
+        if form.is_valid():
+            nome = form.cleaned_data['nome']
+            email = form.cleaned_data['email']
+            assunto = form.cleaned_data['assunto']
+            mensagem = form.cleaned_data['conteudo']
+            
+        # Envia o e-mail
+
+            email_msg = EmailMessage(
+            subject=assunto,
+            body=mensagem,
+            from_email=f"{nome} <{settings.DEFAULT_FROM_EMAIL}>",
+            to=['miroutepe@gmail.com'],
+            reply_to=[email],
+        )
+            email_msg.send(fail_silently=False)
+            return render(request, 'contato_sucesso.html')  # Redireciona para uma página de sucesso ou confirmação
+    else:
+        form = ContatoForm()
+
+        return render(request, 'contato.html', {'form': form})
 

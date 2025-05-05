@@ -8,13 +8,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+
 SECRET_KEY = 'django-insecure-lieo1nc3qi*5e281s#urfpj1*eh$opb0j(lrlbn6@k3rpq_zfs'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
-
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'miroutepe.com.br', 'www.miroutepe.com.br']
+ROOT_URLCONF = 'miroutesite.urls'
+WSGI_APPLICATION = 'miroutesite.wsgi.application'
 
 # Application definition
 
@@ -38,13 +40,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'miroutesite.urls'
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         # 'DIRS': [],
-        'DIRS': [BASE_DIR / 'core' / 'templates'],
+        'DIRS': [BASE_DIR / 'core/templates'],
 
         'APP_DIRS': True,
         'OPTIONS': {
@@ -57,9 +57,6 @@ TEMPLATES = [
         },
     },
 ]
-
-WSGI_APPLICATION = 'miroutesite.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
@@ -113,3 +110,12 @@ STATICFILES_DIRS = [BASE_DIR / 'core' / 'static']
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# ENVIO DE EMAIL do FORM
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # Servidor SMTP do Gmail
+EMAIL_PORT = 587  # Porta SMTP do Gmail
+EMAIL_USE_TLS = True  # Usar TLS
+EMAIL_HOST_USER = 'miroutepe@gmail.com'  # Seu e-mail
+EMAIL_HOST_PASSWORD = 'lpzaoioiqwmotnro'  # Sua senha de APP do google:  https://myaccount.google.com/apppasswords
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
