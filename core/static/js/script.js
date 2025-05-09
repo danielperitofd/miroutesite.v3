@@ -15,4 +15,17 @@
     setInterval(nextSlide, 3000);
     window.addEventListener("resize", showSlide);
 
+    const menuToggle = document.querySelector('.menu-toggle');
+    menuToggle.addEventListener('click', toggleMenu);
+    menuToggle.addEventListener('touchstart', toggleMenu);
+    
+    function toggleMenu() {
+        const navbar = document.getElementById('navbar');
+        navbar.classList.toggle('nav-visible');
+        navbar.classList.toggle('nav-hidden');
+    }
 
+    // Ativando os ícones Lucide no carregamento
+    document.addEventListener("DOMContentLoaded", function () {
+    lucide.createIcons();
+    });

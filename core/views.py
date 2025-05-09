@@ -4,6 +4,8 @@ from django.core.mail import send_mail
 from django.conf import settings
 from .forms import ContatoForm
 
+def construcao(request):
+    return render(request, 'em_construcao.html')
 
 def home(request):
     return render(request, 'home.html')

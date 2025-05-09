@@ -7,12 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MiRoute</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/solucoes_style.css' %}">
+    <script src="https://unpkg.com/lucide@latest"></script>
 
 </head>
 <body>
 
     <!-- Header -->
     <header>
+
         <div class="logo">
             <a href="{% url 'home' %}">
                 <img src="{% static 'img/logo/logo1.png' %}" alt="MiRoute Logo" style="height: 100px;">
@@ -21,20 +24,20 @@
 
         <nav id="navbar">
             <ul>
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'tecnologia' %}">Tecnologia</a></li>
-                <li><a href="{% url 'perguntas' %}">Perguntas</a></li>
-                <li><a href="{% url 'parceiros' %}">Parceiros</a></li>
-                <li><a href="{% url 'vantagens' %}">Vantagens</a></li>
-                <li><a href="{% url 'sobre' %}">Sobre</a></li>
-                <li><a href="{% url 'solucoes' %}">Soluções</a></li>
-                <li><a href="{% url 'suporte' %}">Suporte</a></li>
-                <li><a href="{% url 'localizacao' %}">Localização</a></li>
-                <li><a href="{% url 'contato' %}">Contato</a></li>
-                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'home' %}"><i data-lucide="home"></i> Home</a></li>
+                <li><a href="{% url 'tecnologia' %}"><i data-lucide="cpu"></i> Tecnologia</a></li>
+                <li><a href="{% url 'perguntas' %}"><i data-lucide="help-circle"></i> Perguntas</a></li>
+                <li><a href="{% url 'parceiros' %}"><i data-lucide="users"></i> Parceiros</a></li>
+                <li><a href="{% url 'vantagens' %}"><i data-lucide="star"></i> Vantagens</a></li>
+                <li><a href="{% url 'sobre' %}"><i data-lucide="user"></i> Sobre</a></li>
+                <li><a href="{% url 'solucoes' %}"><i data-lucide="lightbulb"></i> Soluções</a></li>
+                <li><a href="{% url 'suporte' %}"><i data-lucide="life-buoy"></i> Suporte</a></li>
+                <li><a href="{% url 'localizacao' %}"><i data-lucide="map-pin"></i> Localização</a></li>
+                <li><a href="{% url 'contato' %}"><i data-lucide="message-circle"></i> Contato</a></li>
+                <li><a href="{% url 'login' %}"><i data-lucide="log-in"></i> Login</a></li>
             </ul>
         </nav>
-        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
     </header>
 
     <!-- Banner Carrossel -->

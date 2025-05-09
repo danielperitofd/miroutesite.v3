@@ -14,7 +14,8 @@ SECRET_KEY = 'django-insecure-lieo1nc3qi*5e281s#urfpj1*eh$opb0j(lrlbn6@k3rpq_zfs
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'miroutepe.com.br', 'www.miroutepe.com.br']
+# ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'miroutepe.com.br', 'www.miroutepe.com.br']
+ALLOWED_HOSTS = ['*']
 ROOT_URLCONF = 'miroutesite.urls'
 WSGI_APPLICATION = 'miroutesite.wsgi.application'
 
